@@ -15,19 +15,19 @@ void merge(std::vector<int>& L, std::vector<int>& R, std::vector<int>& arr){
     }
 }
 
-void mergeSort(std::vector<int>& arr){
+void MergeSort(std::vector<int>& arr){
     if(arr.size() == 1){return;}
     std::vector<int> L(arr.begin(), arr.begin() + arr.size()/2);
     std::vector<int> R(arr.begin() + arr.size()/2, arr.end());
-    mergeSort(L);
-    mergeSort(R);
+    MergeSort(L);
+    MergeSort(R);
     merge(L, R, arr);
 
 }
 
 int main(){
-    std::vector<int> arr = {2, 3, 6, 1, 8, 9, 7, 4, 5, 2};
-    mergeSort(arr);
+    std::vector<int> arr = {2, 3, 6, 1, 8, 9, 7, 4, 5, 2, 2};
+    MergeSort(arr);
     for(auto el: arr)
         std::cout <<  el << ' ';
 }

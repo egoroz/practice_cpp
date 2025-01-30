@@ -30,7 +30,7 @@ std::vector<int> partition(std::vector<int>& arr, int pivot, int begin, int end)
     return {l, m, r}; // размеры массивов L, M, R
 }
 
-void quickSort(std::vector<int>& arr, int begin, int end){
+void QuickSort(std::vector<int>& arr, int begin, int end){
     if(end - begin <= 1){return;}
     std::uniform_int_distribution<int> distr(begin, end-1);
     int index = distr(generator);
@@ -39,17 +39,17 @@ void quickSort(std::vector<int>& arr, int begin, int end){
     std::vector<int> sizes(3);
     sizes = partition(arr, pivot, begin, end);
 
-    quickSort(arr, begin, begin + sizes[0]);
-    quickSort(arr, end - sizes[2], end);
+    QuickSort(arr, begin, begin + sizes[0]);
+    QuickSort(arr, end - sizes[2], end);
 }
 
-void quickSort(std::vector<int>& arr){
-    quickSort(arr, 0, arr.size());
+void QuickSort(std::vector<int>& arr){
+    QuickSort(arr, 0, arr.size());
 }
 
 int main(){
     std::vector<int> arr = {2, 3, 6, 1, 8, 9, 7, -1, -11, 100, 1,10,10,10,10,10,10,100,1000,100,1000,100};
-    quickSort(arr);
+    QuickSort(arr);
     for(auto el: arr)
         std::cout <<  el << ' ';
     std::cout << '\n';
